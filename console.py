@@ -70,15 +70,19 @@ def add():
 def stop():
     mode = input("--> stop | Введите режим работы('q', 's', 'qs'): ")
 
+    global new_accounts
+
     if mode == "qs":
         for account in new_accounts:
             add_account(account[0], account[1], DATABASE_NAME)
         print(f"--> stop(res) | Данные в текущей сессии успешно сохранены в базу данных")
+        new_accounts = []
         return "quit"
     elif mode == "s":
         for account in new_accounts:
             add_account(account[0], account[1], DATABASE_NAME)
         print(f"--> stop(res) | Данные в текущей сессии успешно сохранены в базу данных")
+        new_accounts = []
     elif mode == "q":
         return "quit"
 
